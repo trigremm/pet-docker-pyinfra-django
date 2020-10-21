@@ -1,0 +1,14 @@
+docker build -t test/openssh .
+docker run -d -p 10022:22 -p 10080:80 -p 10443:443  test/openssh
+
+conda create -y -n pyinfra
+
+conda activate pyinfra
+conda install -y python 
+
+pip install pyinfra 
+
+pyinfra localhost --port 10022 --user root --password root deploy_python.py
+pyinfra localhost --port 10022 --user root --password root deploy_drf.py
+
+# to test django # cd ~/mysite; python3 manage.py runserver 0:80
