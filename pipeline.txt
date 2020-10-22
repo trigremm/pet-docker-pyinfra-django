@@ -1,5 +1,6 @@
-docker build -t test/openssh .
-docker run -d -p 10022:22 -p 10080:80 -p 10443:443  test/openssh
+docker build -t test/openssh2 .
+docker run -d -p 10022:22 -p 10080:80 -p 10443:443 test/openssh2
+docker run -d -p 12022:22 -p 12080:80 -p 12443:443 test/openssh2
 
 conda create -y -n pyinfra
 
